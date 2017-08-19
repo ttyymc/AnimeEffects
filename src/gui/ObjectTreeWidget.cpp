@@ -104,6 +104,15 @@ ObjectTreeWidget::ObjectTreeWidget(ViaPoint& aViaPoint, GUIResources& aResources
 
         mDeleteAction = new QAction(tr("delete"), this);
         mDeleteAction->connect(mDeleteAction, &QAction::triggered, this, &ObjectTreeWidget::onDeleteActionTriggered);
+
+        //mCopyAction = new QAction(tr("copy"), this);
+        //mCopyAction->connect(mCopyAction, &QAction::triggered, this, &ObjectTreeWidget::onCopyActionTriggered);
+
+        //mPasteAction = new QAction(tr("paste"), this);
+        //mPasteAction->connect(mPasteAction, &QAction::triggered, this, &ObjectTreeWidget::onPasteActionTriggered);
+
+        mDuplicateAction = new QAction(tr("duplicate"), this);
+        mDuplicateAction->connect(mDuplicateAction, &QAction::triggered, this, &ObjectTreeWidget::onDuplicateActionTriggered);
     }
 }
 
@@ -471,6 +480,10 @@ void ObjectTreeWidget::onContextMenuRequested(const QPoint& aPos)
         menu.addAction(mObjectAction);
         menu.addAction(mFolderAction);
 
+        //menu.addAction(mCopyAction);
+        //menu.addAction(mPasteAction);
+        menu.addAction(mDuplicateAction);
+
         {
             if (objItem && objItem->node().parent())
             {
@@ -681,6 +694,91 @@ void ObjectTreeWidget::onFolderActionTriggered(bool)
             mProject->commandStack().push(new cmnd::GrabNewObject<obj::Item>(itemPtr));
             mProject->commandStack().push(new obj::InsertItem(*parentItem, itemIndex, *itemPtr));
         }
+    }
+}
+
+/*
+void ObjectTreeWidget::onCopyActionTriggered(bool aIsTriggered)
+{
+    if (mActionItem)
+    {
+        if (obj::Item::cast(mActionItem))
+        {
+            this->openPersistentEditor(mActionItem, kItemColumn);
+            this->editItem(mActionItem, kItemColumn);
+        }
+    }
+}
+
+void ObjectTreeWidget::onPasteActionTriggered(bool aIsTriggered)
+{
+    if (mActionItem)
+    {
+        if (obj::Item::cast(mActionItem))
+        {
+            this->openPersistentEditor(mActionItem, kItemColumn);
+            this->editItem(mActionItem, kItemColumn);
+        }
+    }
+}
+*/
+void ObjectTreeWidget::onDuplicateActionTriggered(bool aIsTriggered)
+{
+    if (mActionItem)
+    {
+        obj::Item* objItem = obj::Item::cast(mActionItem);
+
+        core::ObjectNode* parent = nullptr;
+        int index = -1;
+        float depth = 0.0f;
+
+        QTreeWidgetItem* parentItem = nullptr;
+        int itemIndex = -1;
+
+        // top node
+        if (!objItem || objItem->isTopNode())
+        {
+            return;
+        }
+
+        auto prevNode = &(objItem->node());
+        depth = prevNode->initialDepth() + 1.0f;
+
+        parent = prevNode->parent();
+        if (!parent) return;
+
+        index = parent->children().indexOf(prevNode);
+        if (index < 0) return;
+
+        parentItem = mActionItem->parent();
+        if (!parentItem) return;
+
+        itemIndex = parentItem->indexOfChild(objItem);
+        if (itemIndex < 0) return;
+
+        // create node
+        core::ObjectNode* ptr = prevNode->createClone();
+
+        cmnd::ScopedMacro macro(mProject->commandStack(),
+                                CmndName::tr("duplicate object"));
+        // notifier
+        {
+            auto coreNotifier = new core::ObjectTreeNotifier(*mProject);
+            coreNotifier->event().setType(core::ObjectTreeEvent::Type_Add);
+            coreNotifier->event().pushTarget(parent, *ptr);
+            macro.grabListener(coreNotifier);
+        }
+        macro.grabListener(new obj::RestructureNotifier(*this));
+
+        // create commands
+        mProject->commandStack().push(new cmnd::GrabNewObject<core::ObjectNode>(ptr));
+        mProject->commandStack().push(new cmnd::InsertTree<core::ObjectNode>(&(parent->children()), index, ptr));
+
+        // create gui commands
+        auto itemPtr = createFileItem(*ptr);
+        mProject->commandStack().push(new cmnd::GrabNewObject<obj::Item>(itemPtr));
+        mProject->commandStack().push(new obj::InsertItem(*parentItem, itemIndex, *itemPtr));
+
     }
 }
 

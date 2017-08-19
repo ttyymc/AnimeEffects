@@ -73,6 +73,8 @@ public:
 
     virtual cmnd::Vector createResourceUpdater(const ResourceEvent&) { return cmnd::Vector(); }
 
+    virtual ObjectNode* createClone() const = 0;
+
 protected:
     util::LifeLink& lifeLink() { return mLifeLink; }
     const util::LifeLink& lifeLink() const { return mLifeLink; }

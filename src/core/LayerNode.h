@@ -25,6 +25,7 @@ class LayerNode
 {
 public:
     LayerNode(const QString& aName, ShaderHolder& aShaderHolder);
+    LayerNode(const LayerNode& aRhs);
 
     util::LifeLink::Pointee<LayerNode> pointee() { return lifeLink().pointee<LayerNode>(this); }
 
@@ -58,6 +59,8 @@ public:
     virtual bool hasAnyImage() const { return true; }
 
     virtual cmnd::Vector createResourceUpdater(const ResourceEvent& aEvent);
+
+    virtual ObjectNode *createClone() const;
 
     virtual bool serialize(Serializer& aOut) const;
     virtual bool deserialize(Deserializer& aIn);

@@ -36,6 +36,21 @@ LayerNode::LayerNode(const QString& aName, ShaderHolder& aShaderHolder)
 {
 }
 
+LayerNode::LayerNode(const LayerNode &aRhs)
+    : mName(aRhs.mName)
+    , mIsVisible(aRhs.mIsVisible)
+    , mIsSlimmedDown(aRhs.mIsSlimmedDown)
+    , mInitialRect(aRhs.mInitialRect)
+    , mTimeLine(aRhs.mTimeLine)
+    , mShaderHolder(aRhs.mShaderHolder)
+    , mIsClipped(aRhs.isClipped())
+    , mMeshTransformer("./data/shader/MeshTransform.glslex")
+    , mCurrentMesh()
+    , mClippees()
+{
+
+}
+
 void LayerNode::setDefaultImage(const img::ResourceHandle& aHandle)
 {
     setDefaultImage(aHandle, aHandle->blendMode());
@@ -447,6 +462,11 @@ cmnd::Vector LayerNode::createResourceUpdater(const ResourceEvent& aEvent)
     }
 
     return result;
+}
+
+ObjectNode *LayerNode::createClone() const
+{
+    return new LayerNode(*this);
 }
 
 bool LayerNode::serialize(Serializer& aOut) const

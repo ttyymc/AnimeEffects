@@ -22,6 +22,18 @@ FolderNode::FolderNode(const QString& aName)
 {
 }
 
+FolderNode::FolderNode(const FolderNode &aRhs)
+    : mName(aRhs.mName)
+    , mIsVisible(aRhs.mIsVisible)
+    , mIsSlimmedDown(aRhs.mIsSlimmedDown)
+    , mInitialRect(aRhs.mInitialRect)
+    , mHeightMap()
+    , mTimeLine(aRhs.mTimeLine)
+    , mIsClipped(aRhs.mIsClipped)
+    , mClippees()
+{
+}
+
 FolderNode::~FolderNode()
 {
     qDeleteAll(children());
@@ -227,6 +239,11 @@ bool FolderNode::deserialize(Deserializer& aIn)
         return aIn.errored("invalid end of folder node");
 
     return !aIn.failure();
+}
+
+ObjectNode *FolderNode::createClone() const
+{
+    return new FolderNode(*this);
 }
 
 } // namespace core

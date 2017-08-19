@@ -29,6 +29,7 @@ public:
     static TimeKeyType getTimeKeyTypeInOrderOfOperations(int aIndex);
 
     TimeLine();
+    TimeLine(const TimeLine& aRhs);
     ~TimeLine();
 
     bool hasTimeKey(int aIndex) const;

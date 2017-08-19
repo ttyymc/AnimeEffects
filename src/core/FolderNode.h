@@ -16,6 +16,7 @@ class FolderNode
 {
 public:
     FolderNode(const QString& aName);
+    FolderNode(const FolderNode& aRhs);
     ~FolderNode();
 
     // default posture
@@ -47,6 +48,8 @@ public:
 
     virtual bool serialize(Serializer& aOut) const;
     virtual bool deserialize(Deserializer& aIn);
+
+    virtual ObjectNode *createClone() const;
 
     // from Renderer
     virtual void prerender(const RenderInfo&, const TimeCacheAccessor&);

@@ -70,6 +70,26 @@ TimeLine::TimeLine()
     , mWorking(new TimeKeyExpans())
     , mDefaultKeys()
 {
+
+}
+
+TimeLine::TimeLine(const TimeLine &aRhs)
+    : mMap()
+    , mCurrent(new TimeKeyExpans())
+    , mWorking(new TimeKeyExpans())
+    , mDefaultKeys()
+{
+    for (int i = 0; i < TimeKeyType_TERM; ++i)
+    {
+        if(aRhs.mDefaultKeys[i])
+        {
+            mDefaultKeys[i].reset(aRhs.mDefaultKeys[i]->createClone());
+        }
+        for(auto it = aRhs.mMap[i].begin(); it != aRhs.mMap[i].end(); ++it)
+        {
+            mMap[i].insert(it.key(), it.value()->createClone());
+        }
+    }
 }
 
 TimeLine::~TimeLine()

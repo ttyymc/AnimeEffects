@@ -263,27 +263,36 @@
         <translation>ループ設定を変更</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="279"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="957"/>
         <source>move a object</source>
         <translation>オブジェクトを移動</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="344"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="322"/>
         <source>rename a object</source>
         <translation>オブジェクト名を変更</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="618"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="600"/>
         <source>create a layer object</source>
         <translation>レイヤーオブジェクトを作成</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="689"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="671"/>
         <source>create a folder object</source>
         <translation>フォルダオブジェクトを作成</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="738"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="763"/>
+        <source>duplicate object</source>
+        <translation>オブジェクトを複製</translation>
+    </message>
+    <message>
+        <source>duplicate layer object</source>
+        <translation type="obsolete">レイヤーオブジェクトを複製</translation>
+    </message>
+    <message>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="805"/>
         <source>delete a object</source>
         <translation>オブジェクトを削除</translation>
     </message>
@@ -703,119 +712,119 @@
 <context>
     <name>gui::MainWindow</name>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="144"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="152"/>
         <source>Target Dock</source>
         <translation>ターゲットドック</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="156"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="164"/>
         <source>Property Dock</source>
         <translation>プロパティドック</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="198"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="206"/>
         <source>Tool Dock</source>
         <translation>ツールドック</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="512"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="520"/>
         <source> has been modified. Save changes?</source>
         <translation>は変更が加えられてます。変更を保存しますか？</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="516"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="524"/>
         <source>Some projects have been modified. Save changes?</source>
         <translation>いくつかのプロジェクトは変更が加えられてます。変更を保存しますか？</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="519"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="527"/>
         <source>Save Changes</source>
         <translation>変更を保存する</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="520"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="528"/>
         <source>Discard Changes</source>
         <translation>変更を破棄する</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="521"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="529"/>
         <source>Cancel Closing</source>
         <translation>閉じるのをやめる</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="543"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="551"/>
         <source>Undone : </source>
         <translation>元に戻す : </translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="557"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="565"/>
         <source>Redone : </source>
         <translation>やり直す : </translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="607"/>
-        <location filename="../../src/gui/MainWindow.cpp" line="644"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="615"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="652"/>
         <source>Loading Error</source>
         <translation>読み込みエラー</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="622"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="630"/>
         <source>Open File</source>
         <translation>ファイルを開く</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="661"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="669"/>
         <source>Save File</source>
         <translation>ファイルを保存する</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="741"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="749"/>
         <source>Export Folder</source>
         <translation>出力フォルダ</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="785"/>
-        <location filename="../../src/gui/MainWindow.cpp" line="885"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="793"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="893"/>
         <source>Export Error</source>
         <translation>出力エラー</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="873"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="881"/>
         <source>FFmpeg was not found.</source>
         <translation>FFmpegが見つかりませんでした。</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="875"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="883"/>
         <source>Video export requires FFmpeg.</source>
         <translation>動画出力にはFFmpegが必要です。</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="876"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="884"/>
         <source>Install FFmpeg on the system, or place a FFmpeg executable under /tools of the folder you expanded AnimeEffects.</source>
         <translation>FFmpegをシステムにインストールするか、FFmpegの実行ファイルをAnimeEffectsを展開したフォルダの/tools以下に配置してください。</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="765"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="773"/>
         <source>File already exists.</source>
         <translation>同名のファイルがすでに存在します</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="766"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="774"/>
         <source>Do you want to overwrite the existing file?</source>
         <translation>既存のファイルに上書きしますか？</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="804"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="812"/>
         <source>Export File</source>
         <translation>出力ファイル</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="819"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="827"/>
         <source>Operation Error</source>
         <translation>操作エラー</translation>
     </message>
     <message>
-        <location filename="../../src/gui/MainWindow.cpp" line="820"/>
+        <location filename="../../src/gui/MainWindow.cpp" line="828"/>
         <source>Invalid suffix specification.</source>
         <translation>無効な拡張子が指定されています</translation>
     </message>
@@ -889,33 +898,46 @@
 <context>
     <name>gui::ObjectTreeWidget</name>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="92"/>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="496"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="93"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="474"/>
         <source>slim down</source>
         <translation>スリム化</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="95"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="96"/>
         <source>rename</source>
         <translation>名前を変更</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="98"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="99"/>
         <source>create layer object</source>
         <translation>レイヤーオブジェクトを作成</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="101"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="102"/>
         <source>create folder object</source>
         <translation>フォルダオブジェクトを作成</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="104"/>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="105"/>
         <source>delete</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="496"/>
+        <source>copy</source>
+        <translation type="vanished">コピー</translation>
+    </message>
+    <message>
+        <source>paste</source>
+        <translation type="vanished">貼り付け</translation>
+    </message>
+    <message>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="114"/>
+        <source>duplicate</source>
+        <translation>複製</translation>
+    </message>
+    <message>
+        <location filename="../../src/gui/ObjectTreeWidget.cpp" line="474"/>
         <source>fatten</source>
         <translation>肥大化</translation>
     </message>

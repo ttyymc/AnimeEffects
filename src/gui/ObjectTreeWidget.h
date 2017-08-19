@@ -89,6 +89,9 @@ private:
     void onObjectActionTriggered(bool aIsTriggered);
     void onFolderActionTriggered(bool aIsTriggered);
     void onDeleteActionTriggered(bool aIsTriggered);
+    void onCopyActionTriggered(bool aIsTriggered);
+    void onPasteActionTriggered(bool aIsTriggered);
+    void onDuplicateActionTriggered(bool aIsTriggered);
 
     ViaPoint& mViaPoint;
     GUIResources& mResources;
@@ -109,6 +112,9 @@ private:
     QAction* mObjectAction;
     QAction* mFolderAction;
     QAction* mDeleteAction;
+    //QAction* mCopyAction;
+    //QAction* mPasteAction;
+    QAction* mDuplicateAction;
 };
 
 } // namespace gui
